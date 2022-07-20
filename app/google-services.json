@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "175504819348",
+    "firebase_url": "https://group-project-67a77-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "group-project-67a77",
+    "storage_bucket": "group-project-67a77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175504819348:android:9bab34cb2323913dad6081",
+        "android_client_info": {
+          "package_name": "com.example.groupproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175504819348-vshl5k2ov0ihvqfd1ih62ut554865gni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf5jQcbUQT7zUSLLvbIhTD1AmnYYY3A0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175504819348-vshl5k2ov0ihvqfd1ih62ut554865gni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175504819348:android:1731c3ea560cdc47ad6081",
+        "android_client_info": {
+          "package_name": "com.example.hospitalfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175504819348-vshl5k2ov0ihvqfd1ih62ut554865gni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf5jQcbUQT7zUSLLvbIhTD1AmnYYY3A0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175504819348-vshl5k2ov0ihvqfd1ih62ut554865gni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
