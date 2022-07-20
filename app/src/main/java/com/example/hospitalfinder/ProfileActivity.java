@@ -37,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User currentUser =  snapshot.getValue(User.class);
                 profileText.setText("Hello "+currentUser.userName);
-
             }
 
             @Override

@@ -8,4 +8,4 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity" />
 
-    <!--change "android:name" to "class "and vice versa if map crash    -->
+    <!--change "android:name" to "class " and vice versa if map crash    -->
