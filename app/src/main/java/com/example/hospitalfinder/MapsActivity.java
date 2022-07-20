@@ -22,6 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -70,8 +73,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         databaseUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SimpleDateFormat ISO_8601_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss");
+
+                String insertedAt = ISO_8601_FORMAT.format(new Date());
+
                 databaseUser.child(id).child("userLocation")
                             .setValue(loc.latitude+","+loc.longitude);
+                databaseUser.child(id).child("timeAt")
+                            .setValue(insertedAt);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

@@ -1,7 +1,9 @@
 package com.example.hospitalfinder;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +22,6 @@ public class AboutUs  extends ListActivity {
             "AMIR SAFWAN BIN MOHD AJNI ",
             "MUHAMMAD SYAHIR HAKIM \nBIN CHE MUDA",
             "ZUL HILMI BIN MAZLAN",
-            ""
     };
 
     private String studentId[] = {
@@ -28,7 +29,6 @@ public class AboutUs  extends ListActivity {
             "2021190047",
             "2021166953",
             "2021101271",
-            "",
     };
 
     private Integer imageid[] = {
@@ -36,7 +36,6 @@ public class AboutUs  extends ListActivity {
             R.drawable.amir,
             R.drawable.syahir,
             R.drawable.zh,
-            R.drawable.githubmark,
     };
 
     @Override
@@ -61,6 +60,21 @@ public class AboutUs  extends ListActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Toast.makeText(getApplicationContext(),"You Selected "+profileNames[position-1],Toast.LENGTH_SHORT).show();        }
         });
+    }
+
+    public void openBrowser(View view){
+
+        //Get url from tag
+        String url = (String)view.getTag();
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+        //pass the url to intent data
+        intent.setData(Uri.parse(url));
+
+        startActivity(intent);
     }
 }
 
