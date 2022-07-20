@@ -4,18 +4,22 @@ public class User {
 
     String userName;
     String userLocation;
-    String timeAt;
+    String userCoordinate;
+    String insertedAt;
 
     public User(){}
 
     public User(String userName) {
         this.userName = userName;
         this.userLocation = "Unset";
-        this.timeAt="Unset";
+        this.userCoordinate = "Unset";
+        this.insertedAt="Unset";
     }
 
     public String getUserName() {return userName;}
     public String getUserLocation(){return userLocation;}
+    public String getUserCoordinate(){return userLocation;}
+
     public void setUserLocation(String location){
         if(location!=null && location!="Unset"){
             userLocation=location;
@@ -23,7 +27,7 @@ public class User {
     }
     public void setTimeAt(String time){
         if(time!=null && time!="Unset"){
-            timeAt=time;
+            insertedAt=time;
         }
     }
 }
