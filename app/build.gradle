@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk 32
-
+    useLibrary "org.apache.http.legacy"
     defaultConfig {
         applicationId "com.example.hospitalfinder"
         minSdk 19
