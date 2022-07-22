@@ -17,17 +17,20 @@
             android:value="AIzaSyAAocZbBTTwRXL76uiBfHiaUU5qHPBvCqM" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Hospital Finder" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Hospital Finder"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
 
         <activity
             android:name=".AboutUs"
-            android:exported="false"/>
+            android:exported="false"
+            android:label="Hospital Finder"/>
 
         <activity
             android:name=".MapsActivity"

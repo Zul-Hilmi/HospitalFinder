@@ -22,13 +22,14 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference databaseUser;
     TextView profileText;
-
+    TextView locationText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         profileText= (TextView) findViewById(R.id.textView);
+        locationText = (TextView) findViewById(R.id.textView3);
         auth= FirebaseAuth.getInstance();
         databaseUser= FirebaseDatabase.getInstance("https://group-project-67a77-default-rtdb.asia-southeast1.firebasedatabase.app/")
                                       .getReference("users");
@@ -37,6 +38,13 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User currentUser =  snapshot.getValue(User.class);
                 profileText.setText("Hello "+currentUser.userName);
+                String location=currentUser.userLocation.trim();
+                if(location.equals("Unset")){
+                    locationText.setText("Your location is unset.\nPlease click 'Nearby Hospital' button to set it.");
+                }
+                else{
+                    locationText.setText("Your last location is at "+location);
+                }
             }
 
             @Override
