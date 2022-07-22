@@ -1,7 +1,11 @@
 package com.example.hospitalfinder;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -9,9 +13,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -20,6 +27,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -120,7 +129,8 @@ public class MapsActivity extends FragmentActivity {
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
                             LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
-                            MarkerOptions options=new MarkerOptions().position(latLng).title("User Location");
+                            MarkerOptions options=new MarkerOptions().position(latLng).title("User Location")
+                                                                     .icon(BitmapFromVector(getApplicationContext(),R.drawable.my_location));
                             drawMarkers(googleMap,options);
                             setLocationInFirebase(latLng);
                             mMap= googleMap;
@@ -131,6 +141,13 @@ public class MapsActivity extends FragmentActivity {
                         @Override
                         public void onClick(View v) {
                             makeRequestPlaces(new LatLng(location.getLatitude(),location.getLongitude()));
+                        }
+                    });
+                    ImageView recenter=findViewById(R.id.imageButton);
+                    recenter.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            getCurrentLocation();
                         }
                     });
 
@@ -172,4 +189,12 @@ public class MapsActivity extends FragmentActivity {
         fetchData.execute(dataFetch);
     }
 
+    private BitmapDescriptor BitmapFromVector(Context context, int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
+    }
 }
