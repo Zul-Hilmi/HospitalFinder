@@ -58,7 +58,7 @@ public class AboutUs  extends ListActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(),"You Selected "+profileNames[position-1],Toast.LENGTH_SHORT).show();        }
+                Toast.makeText(getApplicationContext(),"You Selected "+profileNames[position-1]+" from CS2515A",Toast.LENGTH_SHORT).show();        }
         });
     }
 
